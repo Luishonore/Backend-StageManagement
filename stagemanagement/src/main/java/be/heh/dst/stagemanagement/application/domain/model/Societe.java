@@ -5,13 +5,13 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class Societes {
+public class Societe {
 
     private Long id;
     private String nom;
     private String telephone;
 
-    public Societes(Long id, String nom, String telephone) {
+    public Societe(Long id, String nom, String telephone) {
         this.id = id;
         this.nom = nom;
         this.telephone = telephone;
