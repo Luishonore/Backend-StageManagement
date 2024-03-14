@@ -1,13 +1,28 @@
-CREATE TABLE SOCIETES (
-    ID_SOCIETES int primary key,
-    NOM varchar(100) NOT NULL,
-    TELEPHONE varchar(20)
-    --EMAIL varchar(100),
-    --PHOTO varchar(255),
-    --DOMAINE_ACTIVITE varchar(100),
-    --N° varchar(5),
-    --RUE varchar(50),
-    --CODE_POSTAL varchar(6),
-    --VILLE varchar(50),
-    --PAYS varchar(50)
+CREATE SEQUENCE seq_id_societes START 1 INCREMENT 1;
+CREATE SEQUENCE seq_id_notes START 1 INCREMENT 1;
+
+CREATE TABLE SOCIETE (
+    ID_SOCIETE int PRIMARY KEY DEFAULT NEXTVAL('seq_id_societes'),
+    NOM varchar(255) NOT NULL,
+    N varchar(5),
+    RUE varchar(255),
+    CODE_POSTAL varchar(6),
+    VILLE varchar(255),
+    TELEPHONE varchar(255),
+    EMAIL varchar(255),
+    ACTIVITE varchar(255)
+);
+
+CREATE TABLE NOTE (
+    ID_NOTE int PRIMARY KEY,
+    ACCUEIL int NOT NULL,
+    CHARGE int NOT NULL,
+    IMPLICATION int NOT NULL,
+    LIEU int NOT NULL,
+
+    ID_SOCIETE int NOT NULL,
+    FOREIGN KEY (id_societe) REFERENCES SOCIETE (ID_SOCIETE)
+
+    --ID_ETUDIANT int NOT NULL,
+    --FOREIGN KEY (ID_ETUDIANT) REFERENCES ETUDIANT (ID_ETUDIANT)
 );

@@ -3,13 +3,20 @@ package be.heh.dst.stagemanagement.adapter.out.persistance;
 import be.heh.dst.stagemanagement.application.domain.model.Societe;
 import be.heh.dst.stagemanagement.application.port.out.SocietePortOut;
 
+import lombok.extern.log4j.Log4j2;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
+@Log4j2
 @Repository
 public class SocieteRepository implements SocietePortOut {
 
+    //LOG
+    private static final Logger logger = LoggerFactory.getLogger(SocieteRepository.class);
     private final JdbcTemplate jdbcTemplate;
     public SocieteRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -17,37 +24,77 @@ public class SocieteRepository implements SocietePortOut {
 
     @Override
     public List<Societe> findAll() {
-        return jdbcTemplate.query("SELECT * FROM SOCIETES",
+        return jdbcTemplate.query("SELECT * FROM SOCIETE",
                 (rs, rowNum) -> new Societe(
-                        rs.getLong("ID_SOCIETES"),
+                        rs.getInt("ID_SOCIETE"),
                         rs.getString("NOM"),
-                        rs.getString("TELEPHONE")
+                        rs.getString("N"),
+                        rs.getString("RUE"),
+                        rs.getString("CODE_POSTAL"),
+                        rs.getString("VILLE"),
+                        rs.getString("TELEPHONE"),
+                        rs.getString("EMAIL"),
+                        rs.getString("ACTIVITE")
                 )
         );
     }
 
     @Override
-    public Societe findById(Long id) {
-        return jdbcTemplate.queryForObject("SELECT * FROM SOCIETES WHERE id_societes = ?",
-                new Object[]{id},
+    public List<Societe> findByName(String nom) {
+        return jdbcTemplate.query("SELECT * FROM SOCIETE WHERE NOM = ?",
+                new Object[]{nom},
                 (rs, rowNum) -> new Societe(
-                        rs.getLong("ID_SOCIETES"),
+                        rs.getInt("ID_SOCIETE"),
                         rs.getString("NOM"),
-                        rs.getString("TELEPHONE")
+                        rs.getString("N"),
+                        rs.getString("RUE"),
+                        rs.getString("CODE_POSTAL"),
+                        rs.getString("VILLE"),
+                        rs.getString("TELEPHONE"),
+                        rs.getString("EMAIL"),
+                        rs.getString("ACTIVITE")
                 )
         );
     }
 
     @Override
     public Societe save(Societe societe) {
-        jdbcTemplate.update("INSERT INTO SOCIETES (id_societes, NOM, TELEPHONE) VALUES (?, ?, ?)",
-                societe.getId(), societe.getNom(), societe.getTelephone());
+        // Génération de l'ID
+        Integer id = jdbcTemplate.queryForObject("SELECT nextval('seq_id_societes')", Integer.class);
+        societe.setId(id);
+
+        // Insertion de la société
+        jdbcTemplate.update("INSERT INTO SOCIETE (ID_SOCIETE, NOM, N, RUE, CODE_POSTAL, VILLE, TELEPHONE, EMAIL, ACTIVITE) "
+                        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                societe.getId(),
+                societe.getNom(),
+                societe.getN(),
+                societe.getRue(),
+                societe.getCode_postal(),
+                societe.getVille(),
+                societe.getTelephone(),
+                societe.getEmail(),
+                societe.getActivite()
+        );
+
+        // Log d'information
+        logger.info("Société ajoutée avec succès : {}", String.format("ID: %d, Nom: %s, N°: %s, Rue: %s, Code postal: %s, Ville: %s, Téléphone: %s, E-mail: %s, Activité: %s",
+                societe.getId(),
+                societe.getNom(),
+                societe.getN(),
+                societe.getRue(),
+                societe.getCode_postal(),
+                societe.getVille(),
+                societe.getTelephone(),
+                societe.getEmail(),
+                societe.getActivite())
+        );
         return societe;
     }
 
     @Override
-    public void deleteById(Long id) {
-        jdbcTemplate.update("DELETE FROM SOCIETES WHERE id_societes = ?", id);
+    public void deleteById(Integer id) {
+        jdbcTemplate.update("DELETE FROM SOCIETE WHERE id_societe = ?", id);
+        logger.info("Société supprimé avec succès - ID:{}", id);
     }
-
 }

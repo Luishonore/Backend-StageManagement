@@ -24,8 +24,8 @@ public class SocieteService implements SocietePortIn {
     }
 
     @Override
-    public Societe getSocieteById(Long id) {
-        return societePortOut.findById(id);
+    public List<Societe> getSocieteByName(String nom) {
+        return societePortOut.findByName(nom);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class SocieteService implements SocietePortIn {
     }
 
     @Override
-    public void deleteSocieteById(Long id) {
+    public void deleteSocieteById(Integer id) {
         societePortOut.deleteById(id);
     }
 }

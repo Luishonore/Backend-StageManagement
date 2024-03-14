@@ -7,14 +7,25 @@ import lombok.Setter;
 @Getter
 public class Societe {
 
-    private Long id;
+    private Integer id;
     private String nom;
+    private String n;
+    private String rue;
+    private String code_postal;
+    private String ville;
     private String telephone;
+    private String email;
+    private String activite;
 
-    public Societe(Long id, String nom, String telephone) {
+    public Societe(Integer id, String nom, String n, String rue, String code_postal, String ville, String telephone, String email, String activite) {
         this.id = id;
         this.nom = nom;
+        this.n = n;
+        this.rue = rue;
+        this.code_postal = code_postal;
+        this.ville = ville;
         this.telephone = telephone;
+        this.email = email;
+        this.activite = activite;
     }
-
 }

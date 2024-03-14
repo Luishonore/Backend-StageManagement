@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface SocietePortOut {
     List<Societe> findAll();
-    Societe findById(Long id);
+    List<Societe> findByName(String nom);
     Societe save(Societe societe);
-    void deleteById(Long id);
+    void deleteById(Integer id);
 }

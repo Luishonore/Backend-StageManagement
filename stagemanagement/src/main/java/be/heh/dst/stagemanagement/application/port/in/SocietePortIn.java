@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface SocietePortIn {
     List<Societe> getAllSocietes();
-    Societe getSocieteById(Long id);
+    List<Societe> getSocieteByName(String nom);
     Societe addSociete(Societe societe);
-    void deleteSocieteById(Long id);
+    void deleteSocieteById(Integer id);
 }
