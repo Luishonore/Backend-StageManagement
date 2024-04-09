@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="be.heh.dst.stagemanagement.StagemanagementApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-03-05T13:05:27" hostname="ASUS-LUIS" time="1.047">
+<testsuite name="be.heh.dst.stagemanagement.StagemanagementApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-03-25T16:37:05" hostname="ASUS-LUIS" time="1.69">
   <properties/>
-  <testcase name="contextLoads()" classname="be.heh.dst.stagemanagement.StagemanagementApplicationTests" time="1.047"/>
-  <system-out><![CDATA[14:05:24.486 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [be.heh.dst.stagemanagement.StagemanagementApplicationTests]: StagemanagementApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-14:05:24.610 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration be.heh.dst.stagemanagement.StagemanagementApplication for test class be.heh.dst.stagemanagement.StagemanagementApplicationTests
+  <testcase name="contextLoads()" classname="be.heh.dst.stagemanagement.StagemanagementApplicationTests" time="1.69"/>
+  <system-out><![CDATA[17:37:01.951 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [be.heh.dst.stagemanagement.StagemanagementApplicationTests]: StagemanagementApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:37:02.168 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration be.heh.dst.stagemanagement.StagemanagementApplication for test class be.heh.dst.stagemanagement.StagemanagementApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -13,19 +13,19 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.2)
 
-2024-03-05T14:05:25.075+01:00  INFO 27248 --- [    Test worker] b.h.d.s.StagemanagementApplicationTests  : Starting StagemanagementApplicationTests using Java 17.0.10 with PID 27248 (started by luish in C:\Users\luish\OneDrive\Documents\HEH\TFE 2023-24\WEB stage\Projets\Backend\stagemanagement)
-2024-03-05T14:05:25.077+01:00  INFO 27248 --- [    Test worker] b.h.d.s.StagemanagementApplicationTests  : No active profile set, falling back to 1 default profile: "default"
-2024-03-05T14:05:25.739+01:00  INFO 27248 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-03-05T14:05:25.741+01:00  INFO 27248 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2024-03-05T14:05:25.767+01:00  INFO 27248 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 JDBC repository interfaces.
-2024-03-05T14:05:25.780+01:00  INFO 27248 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-03-05T14:05:25.781+01:00  INFO 27248 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data LDAP repositories in DEFAULT mode.
-2024-03-05T14:05:25.785+01:00  INFO 27248 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 LDAP repository interfaces.
-2024-03-05T14:05:26.839+01:00  INFO 27248 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-03-05T14:05:27.089+01:00  INFO 27248 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1216eb3f
-2024-03-05T14:05:27.091+01:00  INFO 27248 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-03-05T14:05:27.277+01:00  INFO 27248 --- [    Test worker] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2024-03-05T14:05:27.346+01:00  INFO 27248 --- [    Test worker] b.h.d.s.StagemanagementApplicationTests  : Started StagemanagementApplicationTests in 2.543 seconds (process running for 4.045)
+2024-03-25T17:37:02.874+01:00  INFO 2652 --- [    Test worker] b.h.d.s.StagemanagementApplicationTests  : Starting StagemanagementApplicationTests using Java 17.0.10 with PID 2652 (started by luish in C:\Users\luish\OneDrive\Documents\HEH\TFE 2023-24\WEB stage\Projets\Backend\stagemanagement)
+2024-03-25T17:37:02.876+01:00  INFO 2652 --- [    Test worker] b.h.d.s.StagemanagementApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2024-03-25T17:37:03.901+01:00  INFO 2652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-25T17:37:03.904+01:00  INFO 2652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-03-25T17:37:03.942+01:00  INFO 2652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 0 JDBC repository interfaces.
+2024-03-25T17:37:03.951+01:00  INFO 2652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-03-25T17:37:03.952+01:00  INFO 2652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data LDAP repositories in DEFAULT mode.
+2024-03-25T17:37:03.963+01:00  INFO 2652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 LDAP repository interfaces.
+2024-03-25T17:37:05.291+01:00  INFO 2652 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-25T17:37:05.574+01:00  INFO 2652 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@15a8cebd
+2024-03-25T17:37:05.577+01:00  INFO 2652 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-25T17:37:05.822+01:00  INFO 2652 --- [    Test worker] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
+2024-03-25T17:37:05.907+01:00  INFO 2652 --- [    Test worker] b.h.d.s.StagemanagementApplicationTests  : Started StagemanagementApplicationTests in 3.467 seconds (process running for 5.129)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

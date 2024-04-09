@@ -15,7 +15,6 @@ import java.util.List;
 public class NoteWebController {
 
     private final NotePortIn notePortIn;
-
     public NoteWebController(NotePortIn notePortIn) {
         this.notePortIn = notePortIn;
     }

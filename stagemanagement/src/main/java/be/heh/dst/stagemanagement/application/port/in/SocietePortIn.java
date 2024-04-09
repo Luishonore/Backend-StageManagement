@@ -7,5 +7,5 @@ public interface SocietePortIn {
     List<Societe> getAllSocietes();
     List<Societe> getSocieteByName(String nom);
     Societe addSociete(Societe societe);
-    void deleteSocieteById(Integer id);
+    void deleteSocieteById(Integer idSociete);
 }

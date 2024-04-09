@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 public class Societe {
 
-    private Integer id;
+    private Integer idSociete;
     private String nom;
     private String n;
     private String rue;
@@ -15,10 +15,11 @@ public class Societe {
     private String ville;
     private String telephone;
     private String email;
+    private String url;
     private String activite;
 
-    public Societe(Integer id, String nom, String n, String rue, String code_postal, String ville, String telephone, String email, String activite) {
-        this.id = id;
+    public Societe(Integer idSociete, String nom, String n, String rue, String code_postal, String ville, String telephone, String email, String url, String activite) {
+        this.idSociete = idSociete;
         this.nom = nom;
         this.n = n;
         this.rue = rue;
@@ -26,6 +27,7 @@ public class Societe {
         this.ville = ville;
         this.telephone = telephone;
         this.email = email;
+        this.url = url;
         this.activite = activite;
     }
 }

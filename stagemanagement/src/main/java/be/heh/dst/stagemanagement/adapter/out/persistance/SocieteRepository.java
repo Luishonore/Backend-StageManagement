@@ -34,6 +34,7 @@ public class SocieteRepository implements SocietePortOut {
                         rs.getString("VILLE"),
                         rs.getString("TELEPHONE"),
                         rs.getString("EMAIL"),
+                        rs.getString("URL"),
                         rs.getString("ACTIVITE")
                 )
         );
@@ -52,6 +53,7 @@ public class SocieteRepository implements SocietePortOut {
                         rs.getString("VILLE"),
                         rs.getString("TELEPHONE"),
                         rs.getString("EMAIL"),
+                        rs.getString("URL"),
                         rs.getString("ACTIVITE")
                 )
         );
@@ -60,13 +62,13 @@ public class SocieteRepository implements SocietePortOut {
     @Override
     public Societe save(Societe societe) {
         // Génération de l'ID
-        Integer id = jdbcTemplate.queryForObject("SELECT nextval('seq_id_societes')", Integer.class);
-        societe.setId(id);
+        Integer idSociete = jdbcTemplate.queryForObject("SELECT nextval('seq_id_societes')", Integer.class);
+        societe.setIdSociete(idSociete);
 
         // Insertion de la société
-        jdbcTemplate.update("INSERT INTO SOCIETE (ID_SOCIETE, NOM, N, RUE, CODE_POSTAL, VILLE, TELEPHONE, EMAIL, ACTIVITE) "
-                        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                societe.getId(),
+        jdbcTemplate.update("INSERT INTO SOCIETE (ID_SOCIETE, NOM, N, RUE, CODE_POSTAL, VILLE, TELEPHONE, EMAIL, URL, ACTIVITE) "
+                        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                societe.getIdSociete(),
                 societe.getNom(),
                 societe.getN(),
                 societe.getRue(),
@@ -74,12 +76,13 @@ public class SocieteRepository implements SocietePortOut {
                 societe.getVille(),
                 societe.getTelephone(),
                 societe.getEmail(),
+                societe.getUrl(),
                 societe.getActivite()
         );
 
         // Log d'information
-        logger.info("Société ajoutée avec succès : {}", String.format("ID: %d, Nom: %s, N°: %s, Rue: %s, Code postal: %s, Ville: %s, Téléphone: %s, E-mail: %s, Activité: %s",
-                societe.getId(),
+        logger.info("Société ajoutée avec succès: {}", String.format("ID: %d, Nom: %s, N°: %s, Rue: %s, Code postal: %s, Ville: %s, Téléphone: %s, E-mail: %s, URL: %s, Activité: %s",
+                societe.getIdSociete(),
                 societe.getNom(),
                 societe.getN(),
                 societe.getRue(),
@@ -87,14 +90,16 @@ public class SocieteRepository implements SocietePortOut {
                 societe.getVille(),
                 societe.getTelephone(),
                 societe.getEmail(),
-                societe.getActivite())
+                societe.getUrl(),
+                societe.getActivite()
+                )
         );
         return societe;
     }
 
     @Override
-    public void deleteById(Integer id) {
-        jdbcTemplate.update("DELETE FROM SOCIETE WHERE id_societe = ?", id);
-        logger.info("Société supprimé avec succès - ID:{}", id);
+    public void deleteById(Integer idSociete) {
+        jdbcTemplate.update("DELETE FROM SOCIETE WHERE id_societe = ?", idSociete);
+        logger.info("Société supprimé avec succès - ID: {}", idSociete);
     }
 }

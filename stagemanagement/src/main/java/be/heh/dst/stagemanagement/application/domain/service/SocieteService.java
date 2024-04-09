@@ -34,7 +34,7 @@ public class SocieteService implements SocietePortIn {
     }
 
     @Override
-    public void deleteSocieteById(Integer id) {
-        societePortOut.deleteById(id);
+    public void deleteSocieteById(Integer idSociete) {
+        societePortOut.deleteById(idSociete);
     }
 }

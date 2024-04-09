@@ -40,9 +40,9 @@ public class SocieteWebController {
         return societePortIn.addSociete(societe);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteSocieteById(@PathVariable Integer id) {
+    @DeleteMapping("/{idSociete}")
+    public void deleteSocieteById(@PathVariable Integer idSociete) {
         logger.debug("Appel de la méthode deleteSocieteById()");
-        societePortIn.deleteSocieteById(id);
+        societePortIn.deleteSocieteById(idSociete);
     }
 }
