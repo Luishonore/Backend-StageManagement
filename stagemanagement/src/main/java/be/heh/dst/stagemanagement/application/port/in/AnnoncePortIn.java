@@ -1,7 +1,6 @@
 package be.heh.dst.stagemanagement.application.port.in;
 
 import be.heh.dst.stagemanagement.application.domain.model.Annonce;
-import be.heh.dst.stagemanagement.application.domain.model.Note;
 import java.util.List;
 
 public interface AnnoncePortIn {
