@@ -11,7 +11,7 @@ import java.util.List;
 
 @Log4j2
 @Repository
-public class AnnonceRepository implements AnnoncePortOut {
+class AnnonceRepository implements AnnoncePortOut {
 
     //LOG
     private static final Logger logger = LoggerFactory.getLogger(AnnonceRepository.class);

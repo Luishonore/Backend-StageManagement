@@ -13,7 +13,7 @@ import java.util.List;
 
 @Log4j2
 @Repository
-public class SocieteRepository implements SocietePortOut {
+class SocieteRepository implements SocietePortOut {
 
     //LOG
     private static final Logger logger = LoggerFactory.getLogger(SocieteRepository.class);

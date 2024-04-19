@@ -11,7 +11,7 @@ import java.util.List;
 
 @Log4j2
 @Repository
-public class NoteRepository implements NotePortOut {
+class NoteRepository implements NotePortOut {
 
     //LOG
     private static final Logger logger = LoggerFactory.getLogger(NoteRepository.class);

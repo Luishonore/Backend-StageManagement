@@ -4,11 +4,9 @@ import be.heh.dst.stagemanagement.application.domain.model.Annonce;
 import be.heh.dst.stagemanagement.application.port.in.AnnoncePortIn;
 import be.heh.dst.stagemanagement.application.port.out.AnnoncePortOut;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public class AnnonceService implements AnnoncePortIn{
 
     private final AnnoncePortOut annoncePortOut;
