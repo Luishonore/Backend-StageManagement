@@ -3,8 +3,8 @@ package be.heh.dst.stagemanagement.adapter.in.web;
 import be.heh.dst.stagemanagement.application.domain.model.Annonce;
 import be.heh.dst.stagemanagement.application.port.in.AnnoncePortIn;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -29,11 +29,13 @@ public class AnnonceWebController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('Coordinateurs')")
     public Annonce addAnnonce(@RequestBody Annonce annonce) {
         return annoncePortIn.addAnnonce(annonce);
     }
 
     @DeleteMapping("/{idAnnonce}")
+    @PreAuthorize("hasRole('Coordinateurs')")
     public void deleteAnnonceById(@PathVariable Integer idAnnonce) {
         annoncePortIn.deleteAnnonceById(idAnnonce);
     }

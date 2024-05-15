@@ -95,6 +95,6 @@ class AnnonceRepository implements AnnoncePortOut {
     @Override
     public void deleteById(Integer idAnnonce) {
         jdbcTemplate.update("DELETE FROM ANNONCE WHERE ID_ANNONCE = ?", idAnnonce);
-        logger.info("Société supprimé avec succès - ID: {}", idAnnonce);
+        logger.info("Annonce supprimé avec succès - ID: {}", idAnnonce);
     }
 }

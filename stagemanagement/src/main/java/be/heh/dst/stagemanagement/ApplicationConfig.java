@@ -1,8 +1,10 @@
 package be.heh.dst.stagemanagement;
 
 import be.heh.dst.stagemanagement.application.domain.service.AnnonceService;
+import be.heh.dst.stagemanagement.application.domain.service.DepotService;
 import be.heh.dst.stagemanagement.application.domain.service.NoteService;
 import be.heh.dst.stagemanagement.application.domain.service.SocieteService;
+import be.heh.dst.stagemanagement.application.port.out.DepotPortOut;
 import be.heh.dst.stagemanagement.application.port.out.SocietePortOut;
 import be.heh.dst.stagemanagement.application.port.out.NotePortOut;
 import be.heh.dst.stagemanagement.application.port.out.AnnoncePortOut;
@@ -25,5 +27,10 @@ public class ApplicationConfig {
     @Bean
     public AnnonceService annonceService(AnnoncePortOut annoncePortOut) {
         return new AnnonceService(annoncePortOut);
+    }
+
+    @Bean
+    public DepotService depotService(DepotPortOut depotPortOut) {
+        return new DepotService(depotPortOut);
     }
 }
