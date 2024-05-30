@@ -1,6 +1,5 @@
 package be.heh.dst.stagemanagement;
 
-import be.heh.dst.stagemanagement.application.domain.model.*;
 import be.heh.dst.stagemanagement.application.domain.service.*;
 import be.heh.dst.stagemanagement.application.port.out.*;
 import org.springframework.context.annotation.Bean;
