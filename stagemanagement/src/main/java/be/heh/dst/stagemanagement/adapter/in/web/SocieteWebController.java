@@ -36,14 +36,14 @@ public class SocieteWebController {
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('Coordinateurs') or hasRole('Superviseur')")
+    @PreAuthorize("hasRole('Coordinateurs') or hasRole('Superviseur') or hasRole('Secretariat')")
     public Societe addSociete(@RequestBody Societe societe) {
         logger.debug("Appel de la méthode addSociete()");
         return societePortIn.addSociete(societe);
     }
 
     @DeleteMapping("/{idSociete}")
-    @PreAuthorize("hasRole('Coordinateurs') or hasRole('Superviseur')")
+    @PreAuthorize("hasRole('Coordinateurs') or hasRole('Superviseur') or hasRole('Secretariat')")
     public void deleteSocieteById(@PathVariable Integer idSociete) {
         logger.debug("Appel de la méthode deleteSocieteById()");
         societePortIn.deleteSocieteById(idSociete);

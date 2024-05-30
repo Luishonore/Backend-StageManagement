@@ -1,17 +1,20 @@
-13:48:39 [main] INFO  b.h.d.s.StagemanagementApplication - Starting StagemanagementApplication using Java 17.0.10 with PID 21508 (C:\Users\luish\OneDrive\Documents\HEH\TFE 2023-24\WEB stage\Projets\Backend\stagemanagement\build\classes\java\main started by luish in C:\Users\luish\OneDrive\Documents\HEH\TFE 2023-24\WEB stage\Projets\Backend)
-13:48:39 [main] INFO  b.h.d.s.StagemanagementApplication - No active profile set, falling back to 1 default profile: "default"
-13:48:40 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-13:48:40 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 JDBC repository interfaces.
-13:48:40 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-13:48:40 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-13:48:40 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
-13:48:40 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
-13:48:40 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1289 ms
-13:48:41 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4966bab1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f0f84d4, org.springframework.security.web.context.SecurityContextHolderFilter@58a765ce, org.springframework.security.web.header.HeaderWriterFilter@8840c98, org.springframework.web.filter.CorsFilter@6df4af5, org.springframework.security.web.authentication.logout.LogoutFilter@764a3e5d, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@38e83838, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b162ecc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b4086c1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26e8ff8c, org.springframework.security.web.session.SessionManagementFilter@5e599100, org.springframework.security.web.access.ExceptionTranslationFilter@4b957db0, org.springframework.security.web.access.intercept.AuthorizationFilter@b379bc6]
-13:48:41 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-13:48:41 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3a38e4dc
-13:48:41 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-13:48:41 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/api'
-13:48:41 [main] INFO  b.h.d.s.StagemanagementApplication - Started StagemanagementApplication in 2.909 seconds (process running for 3.525)
-18:12:48 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-18:12:48 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+12:10:19 [main] INFO  b.h.d.s.StagemanagementApplication - Starting StagemanagementApplication using Java 17.0.10 with PID 26756 (C:\Users\luish\OneDrive\Documents\HEH\TFE 2023-24\WEB stage\Projets\Backend\stagemanagement\build\classes\java\main started by luish in C:\Users\luish\OneDrive\Documents\HEH\TFE 2023-24\WEB stage\Projets\Backend)
+12:10:19 [main] INFO  b.h.d.s.StagemanagementApplication - No active profile set, falling back to 1 default profile: "default"
+12:10:19 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+12:10:19 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 JDBC repository interfaces.
+12:10:20 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+12:10:20 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+12:10:20 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+12:10:20 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+12:10:20 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1359 ms
+12:10:21 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2c1d57bc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26c77f54, org.springframework.security.web.context.SecurityContextHolderFilter@3b11620a, org.springframework.security.web.header.HeaderWriterFilter@44d7e24, org.springframework.web.filter.CorsFilter@3e856100, org.springframework.security.web.authentication.logout.LogoutFilter@118041c7, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@7ddcb0dc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@357f6391, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@689faf79, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6e9a0bea, org.springframework.security.web.session.SessionManagementFilter@bb3ecfe, org.springframework.security.web.access.ExceptionTranslationFilter@40df6090, org.springframework.security.web.access.intercept.AuthorizationFilter@370c9018]
+12:10:21 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+12:10:21 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6735f210
+12:10:21 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+12:10:21 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/api'
+12:10:21 [main] INFO  b.h.d.s.StagemanagementApplication - Started StagemanagementApplication in 3.295 seconds (process running for 4.017)
+12:11:04 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+12:11:04 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+12:11:04 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+12:17:59 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+12:17:59 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

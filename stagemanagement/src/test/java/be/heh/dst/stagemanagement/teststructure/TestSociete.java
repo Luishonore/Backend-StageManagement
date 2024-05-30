@@ -16,8 +16,8 @@ public class TestSociete {
     @Test
     public void testGetAllSocietes() {
         // Initialisation des données
-        Societe societe1 = new Societe(1, "Société 1", "1","rue du test","0001","Testing","0123456789","test1@gmail.com","testeur");
-        Societe societe2 = new Societe(2, "Société 2", "2","rue du test","0001","Testing","9876543210","test2@gmail.com","testeur");
+        Societe societe1 = new Societe(1, "Société 1", "1","rue du test","0001","Testing","0123456789","test1@gmail.com","https://youtu.be/AIGnRc7F86Q?si=gkRpMb-FBltbjOMQ","testeur");
+        Societe societe2 = new Societe(2, "Société 2", "2","rue du test","0001","Testing","9876543210","test2@gmail.com","https://youtu.be/AIGnRc7F86Q?si=gkRpMb-FBltbjOMQ","testeur");
         List<Societe> expectedSocietes = Arrays.asList(societe1, societe2);
 
         // Mocker le port de sortie
@@ -39,7 +39,7 @@ public class TestSociete {
     public void testGetSocieteByName() {
         // Initialisation des données
         String nom = "Société de test";
-        Societe expectedSociete = new Societe(1, nom, "1","rue du test","0001","Testing","0123456789","test1@gmail.com","testeur");
+        Societe expectedSociete = new Societe(1, nom, "1","rue du test","0001","Testing","0123456789","test1@gmail.com","https://youtu.be/AIGnRc7F86Q?si=gkRpMb-FBltbjOMQ","testeur");
         List<Societe> expectedList = List.of(expectedSociete);
 
         // Mocker le port de sortie
@@ -60,8 +60,8 @@ public class TestSociete {
     @Test
     public void testAddSociete() {
         // Initialisation des données
-        Societe newSociete = new Societe(null, "Société 3", "3","rue du test","0001","Testing","0123456789","test1@gmail.com","testeur");
-        Societe expectedSociete = new Societe(3, "Société 3", "3", "rue du test","0001","Testing","0123456789","test1@gmail.com","testeur");
+        Societe newSociete = new Societe(null, "Société 3", "3","rue du test","0001","Testing","0123456789","test1@gmail.com","https://youtu.be/AIGnRc7F86Q?si=gkRpMb-FBltbjOMQ","testeur");
+        Societe expectedSociete = new Societe(3, "Société 3", "3", "rue du test","0001","Testing","0123456789","test1@gmail.com","https://youtu.be/AIGnRc7F86Q?si=gkRpMb-FBltbjOMQ","testeur");
 
         // Mocker le port de sortie
         SocietePortOut mockSocietePortOut = Mockito.mock(SocietePortOut.class);

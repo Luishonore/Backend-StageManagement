@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.690s</div>
+<div class="counter">0.787s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">1.690s</td>
+<td class="success">0.787s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,8 +87,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>17:37:01.951 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [be.heh.dst.stagemanagement.StagemanagementApplicationTests]: StagemanagementApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:37:02.168 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration be.heh.dst.stagemanagement.StagemanagementApplication for test class be.heh.dst.stagemanagement.StagemanagementApplicationTests
+<pre>13:38:25.107 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [be.heh.dst.stagemanagement.StagemanagementApplicationTests]: StagemanagementApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:38:25.225 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration be.heh.dst.stagemanagement.StagemanagementApplication for test class be.heh.dst.stagemanagement.StagemanagementApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -98,19 +98,15 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.2)
 
-2024-03-25T17:37:02.874+01:00  INFO 2652 --- [    Test worker] b.h.d.s.StagemanagementApplicationTests  : Starting StagemanagementApplicationTests using Java 17.0.10 with PID 2652 (started by luish in C:\Users\luish\OneDrive\Documents\HEH\TFE 2023-24\WEB stage\Projets\Backend\stagemanagement)
-2024-03-25T17:37:02.876+01:00  INFO 2652 --- [    Test worker] b.h.d.s.StagemanagementApplicationTests  : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2024-03-25T17:37:03.901+01:00  INFO 2652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-03-25T17:37:03.904+01:00  INFO 2652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2024-03-25T17:37:03.942+01:00  INFO 2652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 0 JDBC repository interfaces.
-2024-03-25T17:37:03.951+01:00  INFO 2652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-03-25T17:37:03.952+01:00  INFO 2652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data LDAP repositories in DEFAULT mode.
-2024-03-25T17:37:03.963+01:00  INFO 2652 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 LDAP repository interfaces.
-2024-03-25T17:37:05.291+01:00  INFO 2652 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-03-25T17:37:05.574+01:00  INFO 2652 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@15a8cebd
-2024-03-25T17:37:05.577+01:00  INFO 2652 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-03-25T17:37:05.822+01:00  INFO 2652 --- [    Test worker] o.s.l.c.support.AbstractContextSource    : Property 'userDn' not set - anonymous context will be used for read-write operations
-2024-03-25T17:37:05.907+01:00  INFO 2652 --- [    Test worker] b.h.d.s.StagemanagementApplicationTests  : Started StagemanagementApplicationTests in 3.467 seconds (process running for 5.129)
+2024-05-22T13:38:25.621+02:00  INFO 26528 --- [    Test worker] b.h.d.s.StagemanagementApplicationTests  : Starting StagemanagementApplicationTests using Java 17.0.10 with PID 26528 (started by luish in C:\Users\luish\OneDrive\Documents\HEH\TFE 2023-24\WEB stage\Projets\Backend\stagemanagement)
+2024-05-22T13:38:25.623+02:00  INFO 26528 --- [    Test worker] b.h.d.s.StagemanagementApplicationTests  : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-05-22T13:38:26.259+02:00  INFO 26528 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-05-22T13:38:26.283+02:00  INFO 26528 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 JDBC repository interfaces.
+2024-05-22T13:38:27.281+02:00  INFO 26528 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@423f8a73, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1aedf08d, org.springframework.security.web.context.SecurityContextHolderFilter@781dbe44, org.springframework.security.web.header.HeaderWriterFilter@13ef7fa1, org.springframework.web.filter.CorsFilter@113dcaf8, org.springframework.security.web.authentication.logout.LogoutFilter@2b44605c, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@664db2ca, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1132baa3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2fdf22f7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b5d9f1e, org.springframework.security.web.session.SessionManagementFilter@714e861f, org.springframework.security.web.access.ExceptionTranslationFilter@7de147e9, org.springframework.security.web.access.intercept.AuthorizationFilter@4e4395c]
+2024-05-22T13:38:27.561+02:00  INFO 26528 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-22T13:38:27.719+02:00  INFO 26528 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1e477944
+2024-05-22T13:38:27.721+02:00  INFO 26528 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-22T13:38:27.894+02:00  INFO 26528 --- [    Test worker] b.h.d.s.StagemanagementApplicationTests  : Started StagemanagementApplicationTests in 2.513 seconds (process running for 3.758)
 </pre>
 </span>
 </div>
@@ -122,7 +118,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.5</a> at 25 mars 2024, 17:37:07</p>
+<a href="http://www.gradle.org">Gradle 8.5</a> at 22 mai 2024, 13:38:28</p>
 </div>
 </div>
 </body>

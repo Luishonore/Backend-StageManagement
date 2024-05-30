@@ -41,30 +41,30 @@ CREATE TABLE ANNONCE (
     FOREIGN KEY (id_societe) REFERENCES SOCIETE (ID_SOCIETE)
 );
 
-/* ************************* */
-/* TABLE EN COURS D'ECRITURE */
-/* ************************* */
-
 /* Fiche: proposition de stage */
 CREATE SEQUENCE seq_id_proposition_stage START 1 INCREMENT 1;
-CREATE TABLE PROPOSITION_STAGE (
-    ID_PROPOSITION_STAGE    int PRIMARY KEY DEFAULT NEXTVAL('seq_id_proposition_stage'),
+CREATE TABLE PROPOSITION_NON_VALIDER (
+    ID_PROPOSITION          int PRIMARY KEY DEFAULT NEXTVAL('seq_id_proposition_stage'),
+    OBJECTIF_STAGE          varchar(255) NOT NULL,
+    TELETRAVAIL             varchar(10) NOT NULL,
+    QUADRIMESTRE            varchar(10) NOT NULL,
+    ANNEE                   varchar(10) NOT NULL,
     /* ETUDIANT */
     NOM_ETUDIANT            varchar(255) NOT NULL,
     PRENOM_ETUDIANT         varchar(255) NOT NULL,
+    EMAIL_ETUDIANT          varchar(255) NOT NULL,
     TELEPHONE_ETUDIANT      varchar(255) NOT NULL,
     N_NATIONAL_ETUDIANT     varchar(255) NOT NULL,
-    EMAIL_ETUDIANT          varchar(255) NOT NULL,
     /* ADRESSE OFFICIEL ETUDIANT */
     RUE_OFFI                varchar(255) NOT NULL,
     N_OFFI                  varchar(5) NOT NULL,
     CODE_POSTAL_OFFI        varchar(6) NOT NULL,
     VILLE_OFFI              varchar(255) NOT NULL,
     /* ADRESSE PENDANT STAGE */
-    RUE_STAGIAIRE           varchar(255) NOT NULL,
-    N_STAGIAIRE             varchar(5) NOT NULL,
-    CODE_POSTAL_STAGIAIRE   varchar(6) NOT NULL,
-    VILLE_STAGIAIRE         varchar(255) NOT NULL,
+    RUE_STAGE               varchar(255) NOT NULL,
+    N_STAGE                 varchar(5) NOT NULL,
+    CODE_POSTAL_STAGE       varchar(6) NOT NULL,
+    VILLE_STAGE             varchar(255) NOT NULL,
     /* COORDONEES STAGE */
     ENTREPRISE              varchar(255) NOT NULL,
     RUE                     varchar(255) NOT NULL,
@@ -79,17 +79,94 @@ CREATE TABLE PROPOSITION_STAGE (
     MAITRE_DE_STAGE         varchar(255) NOT NULL,
     EMAIL_MAITRE            varchar(255) NOT NULL,
     TELEPHONE_MAITRE        varchar(255) NOT NULL,
-    /* AUTRE */
+    /* VALIDATION */
+    VALIDATION_SECRETARIAT  varchar(20) DEFAULT 'en attente',
+    VALIDATION_COORDINATEUR varchar(20) DEFAULT 'en attente'
+);
+
+CREATE TABLE PROPOSITION_VALIDER (
+    ID_PROPOSITION          INTEGER PRIMARY KEY,
     OBJECTIF_STAGE          varchar(255) NOT NULL,
     TELETRAVAIL             varchar(10) NOT NULL,
     QUADRIMESTRE            varchar(10) NOT NULL,
-    ANNEE                   int NOT NULL
+    ANNEE                   varchar(10) NOT NULL,
+    /* ETUDIANT */
+    NOM_ETUDIANT            varchar(255) NOT NULL,
+    PRENOM_ETUDIANT         varchar(255) NOT NULL,
+    EMAIL_ETUDIANT          varchar(255) NOT NULL,
+    TELEPHONE_ETUDIANT      varchar(255) NOT NULL,
+    N_NATIONAL_ETUDIANT     varchar(255) NOT NULL,
+    /* ADRESSE OFFICIEL ETUDIANT */
+    RUE_OFFI                varchar(255) NOT NULL,
+    N_OFFI                  varchar(5) NOT NULL,
+    CODE_POSTAL_OFFI        varchar(6) NOT NULL,
+    VILLE_OFFI              varchar(255) NOT NULL,
+    /* ADRESSE PENDANT STAGE */
+    RUE_STAGE               varchar(255) NOT NULL,
+    N_STAGE                 varchar(5) NOT NULL,
+    CODE_POSTAL_STAGE       varchar(6) NOT NULL,
+    VILLE_STAGE             varchar(255) NOT NULL,
+    /* COORDONEES STAGE */
+    ENTREPRISE              varchar(255) NOT NULL,
+    RUE                     varchar(255) NOT NULL,
+    N                       varchar(5) NOT NULL,
+    CODE_POSTAL             varchar(6) NOT NULL,
+    VILLE                   varchar(255) NOT NULL,
+    TELEPHONE               varchar(255) NOT NULL,
+    /* CONTACT */
+    CHEF_PERSONNEL          varchar(255) NOT NULL,
+    EMAIL_CHEF              varchar(255) NOT NULL,
+    TELEPHONE_CHEF          varchar(255) NOT NULL,
+    MAITRE_DE_STAGE         varchar(255) NOT NULL,
+    EMAIL_MAITRE            varchar(255) NOT NULL,
+    TELEPHONE_MAITRE        varchar(255) NOT NULL
 );
 
+-- Trigger pour valider une proposition
+CREATE OR REPLACE FUNCTION valider_proposition()
+    RETURNS TRIGGER AS $$
+BEGIN
+    -- Vérifier si les deux statuts de validation sont "validé"
+    IF NEW.VALIDATION_SECRETARIAT = 'validé' AND NEW.VALIDATION_COORDINATEUR = 'validé' THEN
+        -- Insérer la proposition validée dans la table PROPOSITION_VALIDE
+        INSERT INTO PROPOSITION_VALIDER (ID_PROPOSITION, OBJECTIF_STAGE, TELETRAVAIL, QUADRIMESTRE, ANNEE, NOM_ETUDIANT, PRENOM_ETUDIANT, EMAIL_ETUDIANT, TELEPHONE_ETUDIANT, N_NATIONAL_ETUDIANT,
+                                        RUE_OFFI, N_OFFI, CODE_POSTAL_OFFI, VILLE_OFFI, RUE_STAGE, N_STAGE, CODE_POSTAL_STAGE, VILLE_STAGE,
+                                        ENTREPRISE, RUE, N, CODE_POSTAL, VILLE, TELEPHONE,
+                                        CHEF_PERSONNEL, EMAIL_CHEF, TELEPHONE_CHEF, MAITRE_DE_STAGE, EMAIL_MAITRE, TELEPHONE_MAITRE)
+        SELECT NEW.ID_PROPOSITION, NEW.OBJECTIF_STAGE, NEW.TELETRAVAIL, NEW.QUADRIMESTRE, NEW.ANNEE, NEW.NOM_ETUDIANT, NEW.PRENOM_ETUDIANT, NEW.EMAIL_ETUDIANT, NEW.TELEPHONE_ETUDIANT, NEW.N_NATIONAL_ETUDIANT,
+               NEW.RUE_OFFI, NEW.N_OFFI, NEW.CODE_POSTAL_OFFI, NEW.VILLE_OFFI, NEW.RUE_STAGE, NEW.N_STAGE, NEW.CODE_POSTAL_STAGE, NEW.VILLE_STAGE,
+               NEW.ENTREPRISE, NEW.RUE, NEW.N, NEW.CODE_POSTAL, NEW.VILLE, NEW.TELEPHONE,
+               NEW.CHEF_PERSONNEL, NEW.EMAIL_CHEF, NEW.TELEPHONE_CHEF, NEW.MAITRE_DE_STAGE, NEW.EMAIL_MAITRE, NEW.TELEPHONE_MAITRE
+        WHERE NOT EXISTS (
+            SELECT 1 FROM PROPOSITION_VALIDER WHERE ID_PROPOSITION = NEW.ID_PROPOSITION
+        );
+
+        -- Supprimer la proposition de la table PROPOSITION_NON_VALIDER
+        DELETE FROM PROPOSITION_NON_VALIDER WHERE ID_PROPOSITION = NEW.ID_PROPOSITION;
+    END IF;
+
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Création du déclencheur après mise à jour de la table PROPOSITION_NON_VALIDER
+CREATE TRIGGER proposition_validee_trigger
+    AFTER UPDATE ON PROPOSITION_NON_VALIDER
+    FOR EACH ROW
+EXECUTE FUNCTION valider_proposition();
+
+
+
+/* ************************* */
+/* TABLE EN COURS D'ECRITURE */
+/* ************************* */
+
+
+
 /* Fiche: titre de stage */
-CREATE SEQUENCE seq_id_titre_stage START 1 INCREMENT 1;
-CREATE TABLE TITRE_STAGE (
-    ID_TITRE_STAGE          int PRIMARY KEY DEFAULT NEXTVAL('seq_id_titre_stage'),
+CREATE SEQUENCE seq_id_fiche_titre_stage START 1 INCREMENT 1;
+CREATE TABLE FICHE_TITRE_STAGE (
+    ID_TITRE_STAGE          int PRIMARY KEY DEFAULT NEXTVAL('seq_id_fiche_titre_stage'),
     /* ETUDIANT */
     NOM_ETUDIANT            varchar(255) NOT NULL,
     PRENOM_ETUDIANT         varchar(255) NOT NULL,
@@ -115,6 +192,8 @@ CREATE TABLE TITRE_STAGE (
     NOM_PROF                varchar(255),
     EMAIL_PROF              varchar(255)
 );
+
+
 
 
 /* ZONE DE DEPOT */

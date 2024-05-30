@@ -1,13 +1,8 @@
 package be.heh.dst.stagemanagement;
 
-import be.heh.dst.stagemanagement.application.domain.service.AnnonceService;
-import be.heh.dst.stagemanagement.application.domain.service.DepotService;
-import be.heh.dst.stagemanagement.application.domain.service.NoteService;
-import be.heh.dst.stagemanagement.application.domain.service.SocieteService;
-import be.heh.dst.stagemanagement.application.port.out.DepotPortOut;
-import be.heh.dst.stagemanagement.application.port.out.SocietePortOut;
-import be.heh.dst.stagemanagement.application.port.out.NotePortOut;
-import be.heh.dst.stagemanagement.application.port.out.AnnoncePortOut;
+import be.heh.dst.stagemanagement.application.domain.model.*;
+import be.heh.dst.stagemanagement.application.domain.service.*;
+import be.heh.dst.stagemanagement.application.port.out.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -32,5 +27,15 @@ public class ApplicationConfig {
     @Bean
     public DepotService depotService(DepotPortOut depotPortOut) {
         return new DepotService(depotPortOut);
+    }
+
+    @Bean
+    public PropositionService propositionService(PropositionPortOut propositionPortOut) {
+        return new PropositionService(propositionPortOut);
+    }
+
+    @Bean
+    public PropositionValiderService propositionValiderService(PropositionValiderPortOut propositionValiderPortOut) {
+        return new PropositionValiderService(propositionValiderPortOut);
     }
 }
