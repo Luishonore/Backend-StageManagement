@@ -3,14 +3,14 @@ CREATE TABLE SOCIETE
 (
     ID_SOCIETE  int PRIMARY KEY DEFAULT NEXTVAL('seq_id_societes'),
     NOM         varchar(255) NOT NULL,
-    N           varchar(5),
-    RUE         varchar(255),
-    CODE_POSTAL varchar(6),
-    VILLE       varchar(255),
-    TELEPHONE   varchar(255),
-    EMAIL       varchar(255),
-    URL         varchar(255),
-    ACTIVITE    varchar(255)
+    N           varchar(5) NOT NULL,
+    RUE         varchar(255) NOT NULL,
+    CODE_POSTAL varchar(6) NOT NULL,
+    VILLE       varchar(255) NOT NULL,
+    TELEPHONE   varchar(255) NOT NULL,
+    EMAIL       varchar(255) NOT NULL,
+    URL         varchar(255) NOT NULL,
+    ACTIVITE    varchar(255) NOT NULL
 );
 
 CREATE SEQUENCE seq_id_notes START 1 INCREMENT 1;
@@ -34,7 +34,7 @@ CREATE TABLE ANNONCE (
     PRENOM_CONTACT      varchar(255),
     EMAIL_CONTACT       varchar(255),
     TELEPHONE_CONTACT   varchar(255),
-    TAG_SECTION         varchar(255),
+    TAG_SECTION         varchar(255) NOT NULL,
     DATE                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
     ID_SOCIETE  int NOT NULL,

@@ -4,6 +4,7 @@ import be.heh.dst.stagemanagement.application.domain.model.Note;
 import be.heh.dst.stagemanagement.application.port.in.NotePortIn;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,11 +31,13 @@ public class NoteWebController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('Stagiaires')")
     public Note addNote(@RequestBody Note note) {
         return notePortIn.addNote(note);
     }
 
     @DeleteMapping("/{idNote}")
+    @PreAuthorize("hasRole('Coordinateurs') or hasRole('Superviseur')")
     public void deleteNoteById(@PathVariable Integer idNote) {
         notePortIn.deleteNoteById(idNote);
     }

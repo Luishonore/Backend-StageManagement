@@ -81,7 +81,9 @@ class SocieteRepository implements SocietePortOut {
         );
 
         // Log d'information
-        logger.info("Société ajoutée avec succès: {}", String.format("ID: %d, Nom: %s, N°: %s, Rue: %s, Code postal: %s, Ville: %s, Téléphone: %s, E-mail: %s, URL: %s, Activité: %s",
+        logger.info("Société ajoutée avec succès: {}",
+                String.format("ID: %d, Nom: %s, N°: %s, Rue: %s, Code postal: %s, Ville: %s, " +
+                                "Téléphone: %s, E-mail: %s, URL: %s, Activité: %s",
                 societe.getIdSociete(),
                 societe.getNom(),
                 societe.getN(),

@@ -29,13 +29,13 @@ public class AnnonceWebController {
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('Coordinateurs')")
+    @PreAuthorize("hasRole('Coordinateurs') or hasRole('Superviseur')")
     public Annonce addAnnonce(@RequestBody Annonce annonce) {
         return annoncePortIn.addAnnonce(annonce);
     }
 
     @DeleteMapping("/{idAnnonce}")
-    @PreAuthorize("hasRole('Coordinateurs')")
+    @PreAuthorize("hasRole('Coordinateurs') or hasRole('Superviseur')")
     public void deleteAnnonceById(@PathVariable Integer idAnnonce) {
         annoncePortIn.deleteAnnonceById(idAnnonce);
     }
